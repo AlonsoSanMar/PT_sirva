@@ -42,3 +42,8 @@
 .fc-header-right button {
     margin-right: 10px;
 }
+
+.modal-header{
+    background-color: #d60a0a;
+    color: white;
+}

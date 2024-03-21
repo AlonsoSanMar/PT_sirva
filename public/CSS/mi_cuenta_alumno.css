@@ -114,4 +114,7 @@
     width: 80px;
 }
 
-
+.modal-header{
+    background-color: #d60a0a;
+    color: white;
+}

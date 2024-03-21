@@ -215,3 +215,8 @@
 .btn-nuevoTutorado:hover{
     transform: scale(1.1);
 }
+
+.modal-header{
+    background-color: #d60a0a;
+    color: white;
+}

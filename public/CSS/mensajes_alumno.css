@@ -41,6 +41,11 @@
     }
 }
 
+.back-enviado{
+    border: none;
+    background: linear-gradient(to left, #673dff 15px, #e8d8ff 5px);
+}
+
 .back-leido{
     background: linear-gradient(to left, #28a745 15px, #E2FFE3 5px);
     border: none;
@@ -87,5 +92,10 @@
 
 .btn-activo{
     background-color: black;
+    color: white;
+}
+
+.modal-header{
+    background-color: #d60a0a;
     color: white;
 }

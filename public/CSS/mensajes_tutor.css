@@ -9,7 +9,7 @@
 
 
 /* Para los mensajes recibidos*/
-#cont-mensajes{
+#cont-mensajes {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,18 +17,18 @@
 }
 
 /* Para los mensajes recibidos*/
-#cont-mensajes-enviados{
+#cont-mensajes-enviados {
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.msj{
+.msj {
     width: 100%;
 }
 
-#img-enviarMsj{
+#img-enviarMsj {
     width: 80px;
     transform: scale(1.8);
     transition: transform 0.2s;
@@ -37,28 +37,34 @@
 
 /* Estilos responsivos */
 @media screen and (max-width: 767px) {
-    #titulo-newMsj{
+    #titulo-newMsj {
         display: none;
     }
 }
 
-.back-leido{
+
+.back-enviado {
+    border: none;
+    background: linear-gradient(to left, #673dff 15px, #e8d8ff 5px);
+}
+
+.back-leido {
     background: linear-gradient(to left, #28a745 15px, #E2FFE3 5px);
     border: none;
 }
 
-.back-noLeido{
+.back-noLeido {
     background: linear-gradient(to left, #d60a0a 15px, #FFDDDD 5px);
     border: none;
 }
 
-.btn-nuevoMensaje{
+.btn-nuevoMensaje {
     background-color: transparent;
     border: none;
     transition: transform 0.2s;
 }
 
-.btn-nuevoMensaje:hover{
+.btn-nuevoMensaje:hover {
     transform: scale(1.1);
 }
 
@@ -73,7 +79,12 @@
     transform: scale(1.1);
 }
 
-.btn-activo{
+.btn-activo {
     background-color: black;
+    color: white;
+}
+
+.modal-header {
+    background-color: #d60a0a;
     color: white;
 }
