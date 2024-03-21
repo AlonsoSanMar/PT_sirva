@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9' crossorigin='anonymous'>
+    <link rel="stylesheet" href="/CSS/registro_alumno_resumen.css">
+</head>
+
+<body>
+
+    <div id="cont-principal" class="mx-auto">
+        <h1>Datos del Usuario</h1>
+
+        <div class="row mb-2 mt-3">
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control"  value="<%= nuevoUsuario.nombre %>" readonly/>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div data-mdb-input-init class="form-outline">
+                    <label class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" value="<%= nuevoUsuario.apellidos %>" readonly/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col">
+                <div data-mdb-input-init class="form-outline mb-2">
+                    <label class="form-label" >Matricula</label>
+                    <input type="text" class="form-control"  value="<%= nuevoUsuario.matricula %>" readonly/>
+                </div>
+            </div>
+
+            <div class="col">
+                <div data-mdb-input-init class="form-outline mb-2">
+                    <label class="form-label" for="creditos_actuales">Creditos Actuales</label>
+                    <input type="number" class="form-control" value="<%= nuevoUsuario.creditos_actuales %>" readonly/>
+                </div>
+            </div>
+
+            <div class="col">
+                <div data-mdb-input-init class="form-outline mb-2">
+                    <label class="form-label" >Correo</label>
+                    <input type="email"  class="form-control" value="<%= nuevoUsuario.correo %>" readonly/>
+                </div>
+            </div>
+        </div>
+
+        <div id="cont-ueas">
+            <% nuevoUsuario.ueasSeleccionadas.forEach(element=> { %>
+                <p>
+                    <%= element %>
+                </p>
+                <% }) %>
+        </div>
+
+        <div class="card text-center">
+            <div class="card-header">
+              Selección de UEA
+            </div>
+            <div class="card-body d-flex flex-wrap justify-content-center align-items-center gap-2" id="cont-seleccion">
+            </div>
+          </div>
+
+
+        <form>
+            <input type="hidden" name="nombre" value="<%= nuevoUsuario.nombre %>">
+            <input type="hidden" name="apellidos" value="<%= nuevoUsuario.apellidos %>">
+            <input type="hidden" name="matricula" value="<%= nuevoUsuario.matricula %>">
+            <input type="hidden" name="anio_ingreso" value="<%= nuevoUsuario.anio_ingreso %>">
+            <input type="hidden" name="periodo" value="<%= nuevoUsuario.periodo %>">
+            <input type="hidden" name="creditos_actuales" value="<%= nuevoUsuario.creditos_actuales %>">
+            <input type="hidden" name="correo" value="<%= nuevoUsuario.correo %>">
+            <input type="hidden" name="password" value="<%= nuevoUsuario.password %>">
+            <% nuevoUsuario.ueasSeleccionadas.forEach(element=> { %>
+                <input type="hidden" name="ueasSeleccionadas[]" value="<%= element %>">
+                <% }) %>
+                    <!-- Botón para enviar el formulario -->
+                    <div id="continuar" class="d-flex flex-wrap justify-content-end">
+                        <button id="btn-registrar" type="button" class="btn btn-block mt-3">Crear Usuario</button>
+                    </div>
+        </form>
+    </div>
+
+
+    <script src="/JS/registro_alumno_guardar.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm' crossorigin='anonymous'></script>
+</body>
+
+</html>

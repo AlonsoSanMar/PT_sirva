@@ -1,0 +1,44 @@
+.btn-Agendar{
+    background-color: transparent;
+    border: none;
+    transition: transform 0.2s;
+    transform: scale(2);
+    margin-right: 40px;
+}
+
+.btn-Agendar:hover{
+    transform: scale(2.2);
+}
+
+#titulo-newMsj{
+    font-size: 14px;
+}
+
+/* Estilo personalizado para hacer el calendario responsive */
+#calendar {
+    max-width: 100%;
+}
+
+/* Estilo personalizado para el headerToolbar */
+.fc-header-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.fc-header-left,
+.fc-header-center,
+.fc-header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fc-header-left button,
+.fc-header-center span,
+.fc-header-right button {
+    margin-right: 10px;
+}

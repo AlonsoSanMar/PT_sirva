@@ -1,0 +1,106 @@
+<%- include('templates/sidebar_tutor',{estilo: '/CSS/mensajes_tutor.css', activeInicio: '', activeTutorados:'', activeMensajes:'active'})%>
+
+            <div id="cont-principal" class="mx-auto dashboard-content px-3 pt-4">
+                <div id="cont-nuevoMsj" class="d-flex justify-content-between mt-3 border-bottom border-2 border-black">
+                    <h1>Mensajes</h1>
+                    <button type="button" class="btn-nuevoMensaje" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-paper-plane" id="img-enviarMsj"></i>
+                        <span id="titulo-newMsj">Nuevo Mensaje</span>
+                    </button>
+                </div>
+                <div id="cont-mensajes">
+                        <% for( let i = 0; i < mensajes.length; i++ ) { %>
+                            <div class="card text-center mt-3 msj">
+                                    <% if (mensajes[i].status != false) { %>
+                                        <div class="card-header back-leido text-black">
+                                            <i class="fa-solid fa-envelope"></i>
+                                    <% } else { %>
+                                        <div class="card-header back-noLeido text-black">
+                                            <i class="fa-solid fa-envelope-open"></i>
+                                    <% } %>                                    
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">De:  <span id="origen-msj<%= i %>"><%= mensajes[i].origen %></span></h5>
+                                  <input type="hidden" id="msj-id<%= i %>" value="<%= mensajes[i]._id %>">
+                                <button type="button" class="btn abrir-leer" data-bs-toggle="modal" data-bs-target="#modal-mensaje<%= i %>">Leer mensaje</button>
+                                <button type="button" class="btn bg-danger btn-eliminar-msj"><i class="fa-solid fa-circle-xmark"></i></button>
+                                </div>
+                                <div class="card-footer text-body-secondary">
+                                  <%= mensajes[i].fechaEnvio %> <%= mensajes[i].horaEnvio %>
+                                </div>
+                              </div>
+                        <% } %>
+                </div>
+                
+            </div>
+                
+        </div>
+    </div>
+
+     <!--Modal para enviar el mensaje-->
+     <div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Mensaje</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3 d-none">
+                  <label for="origen-envio" class="col-form-label">Origen:</label>
+                  <input type="text" class="form-control" id="origen-envio" value="<%= nuevoUsuario.correo %>">
+                </div>
+                <div class="mb-3">
+                    <label for="destino-envio" class="col-form-label">Para:</label>
+                    <input type="text" class="form-control" id="destino-envio" placeholder="Matricula...">
+                </div>
+                <div class="mb-3">
+                  <label for="titulo-envio" class="col-form-label">Titulo:</label>
+                  <input type="text" class="form-control" id="titulo-envio">
+                </div>
+                <div class="mb-3">
+                  <label for="cuerpo-envio" class="col-form-label">Mensaje:</label>
+                  <textarea class="form-control" id="cuerpo-envio"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn bg-dark bg-black" data-bs-dismiss="modal" id="no-enviarMsj">Cerrar</button>
+              <button type="button" class="btn" id="enviar-msj">Enviar mensaje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal para cada mensaje recibido -->
+      <% for( let i = 0; i < mensajes.length; i++ ) { %>
+        <div class="modal fade" id="modal-mensaje<%= i %>" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-3" id="exampleModalLabel"><strong><%= mensajes[i].titulo %></strong></h1>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="cuerpo-envio" class="col-form-label">Mensaje:</label>
+                      <textarea class="form-control" id="cuerpo-envio" readonly><%= mensajes[i].cuerpo %></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary bg-black leer-msj" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn responder-msj" data-bs-dismiss="modal">Responder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% } %>
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm' crossorigin='anonymous'></script>
+    <script src="/JS/mensajes_tutor.js"></script>
+    <script src="/JS/menu_ctrl_sidebar.js"></script>
+    <script src="/JS/cerrar_sesion.js"></script>
+</body>
+</html>

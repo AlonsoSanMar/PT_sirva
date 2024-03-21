@@ -1,0 +1,64 @@
+.cont-uea-padre {
+    box-shadow: 1px 1px 3px black;
+    border: none;
+}
+
+.u {
+    width: 220px;
+    overflow: auto;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.u p:first-child {
+    font-weight: bold;
+}
+
+#datos-ueas{
+    display: none;
+}
+
+#cont-principal {
+    border-radius: 20px;
+    width: 95%;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 50px;
+    margin: 20px;
+    box-shadow: 8px 5px 35px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Para los contenedores de las recomendaciones */
+#cont-recomendaciones{
+    display: none;
+}
+
+/* Para el contenedor de opciones */
+#cont-opciones{
+    font-size: 18px;
+}
+
+#instrucciones-recomendacion{
+    font-size: 18px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 767px) {
+    #cont-opciones {
+        font-size: 12px;
+    }
+}
+
+
+/* Para los botones */
+.btn{
+    background-color: #094293;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    background-color: #094293;
+    color: white;
+}
+

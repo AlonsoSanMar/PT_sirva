@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+
+#cont-principal{
+    border-radius: 20px;
+    width: 90%;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 50px;
+    margin: 30px;
+    box-shadow: 8px 5px 35px 15px rgba(0,0,0,0.5);
+}
+
+/*
+#cont-seleccion{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    display: none;
+    box-shadow: 1px 1px 2px black;
+}*/
+
+.cont-uea-padre{
+    box-shadow: 1px 1px 3px black;
+    border: none;
+}
+
+.u{
+    width: 220px;
+    overflow: auto;
+    height: 300px;
+    box-sizing: border-box;
+    @media (max-width: 380px) {
+        width: 100%; /* Ancho máximo igual al 100% del contenedor padre */
+    }
+}
+
+.u p:first-child{
+    font-weight: bold;
+}
+
+.cont-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-eliminar{
+    font-size: 12px;
+    width: 65px;
+    border: none;
+    border-radius: 1em;
+    padding: 5px;
+    margin: 10px;
+    background-color: red;
+    transition: transform 0.2s;
+    cursor: pointer;
+    color: black;
+}
+
+.btn-eliminar:hover{
+    transform: scale(1.1);
+}
+
+.btn-aprobado{
+    color: black;
+    font-size: 12px;
+    width: 65px;
+    border: none;
+    border-radius: 1em;
+    padding: 5px;
+    margin: 10px;
+    background-color: rgb(14, 161, 7);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.btn-aprobado:hover{
+    transform: scale(1.1);
+}
+
+
+#sugerencias{
+    padding: 0;
+    opacity: 80%;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+#sugerencias li{
+    list-style: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    z-index: -1;
+}
+
+#sugerencias li:hover{
+    background: #efefef;
+}
+
+
+/* Estilos para el boton de avanzar */
+
+#continuar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+#siguiente{
+    border: none;
+    border-radius: 1em;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+    background-color: aliceblue;
+    transition: transform 0.2s;
+}
+
+#siguiente:hover{
+    transform: scale(1.1);
+}
+
+/* Para los botones */
+.btn{
+    background-color: #094293;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    background-color: #094293;
+    color: white;
+}

@@ -1,0 +1,82 @@
+<%- include('templates/sidebar',{estilo: '/CSS/calendario_alumno.css' , activeInicio: '' , activeRiesgo: '' ,
+  activeRecomendacion: '' , activeMensajes:'', activeNoticias: '' , activeCuenta: '' , activeCalendario: 'active' })%>
+
+  <div id="cont-principal" class="mx-auto dashboard-content px-3 pt-4">
+    <div class="d-flex justify-content-center">
+      <h1>Calendario</h1>
+      <input type="text" id="correo-tutor" class="d-none" value="<%= tutor.correo %>">
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div id="calendar">
+            <div class="fc-header-toolbar">
+              <div class="fc-header-left">
+                <button class="fc-prev-button">Anterior</button>
+                <button class="fc-next-button">Siguiente</button>
+                <button class="fc-today-button">Hoy</button>
+              </div>
+              <div class="fc-header-center">
+                <span class="fc-toolbar-title">Titulo del calendario</span>
+              </div>
+              <div class="fc-header-right">
+                <button class="fc-month-button">Mes</button>
+                <button class="fc-week-button">Semana</button>
+                <button class="fc-day-button">Día</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+  </div>
+
+  <!--Modal para ver el evento-->
+  <div class="modal fade" id="modalActualiza" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ver evento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3 d-none">
+              <label for="correo-tutor-up">Correo tutor:</label>
+              <input type="text" class="form-control" id="correo-tutor-up" value="<%= nuevoUsuario.correo %>">
+            </div>
+            <div class="mb-3">
+              <label for="eventNameUPD">Evento:</label>
+              <input type="text" class="form-control" id="eventNameUPD" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="eventDateUPD">Fecha y Hora (Inicio):</label>
+              <input type="datetime-local" class="form-control" id="eventDateUPD" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="eventDateFinalUPD">Fecha y Hora (Termino):</label>
+              <input type="datetime-local" class="form-control" id="eventDateFinalUPD" readonly>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js'
+    integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm'
+    crossorigin='anonymous'></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+  <script src="/JS/calendario_alumno.js"></script>
+  <script src="/JS/menu_ctrl_sidebar.js"></script>
+  <script src="/JS/cerrar_sesion.js"></script>
+  </body>
+
+  </html>

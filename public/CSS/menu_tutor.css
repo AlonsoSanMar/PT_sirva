@@ -1,0 +1,196 @@
+body {
+    background: #eee;
+}
+
+/* CSS para desactivar el desplazamiento del cuerpo cuando el sidebar está activo */
+body.sidebar-active {
+    overflow: hidden;
+}
+
+
+#side_nav {
+    background: #690217;
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+hr.h-color {
+    background: #eee;
+}
+
+.sidebar li.active {
+    background: #eee;
+    border-radius: 8px;
+}
+
+.sidebar li.active a,
+.sidebar li.active a:hover {
+    color: #000;
+}
+
+.sidebar li:not(.active){
+    transition: all 0.2s;
+}
+
+.sidebar li:not(.active):hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+
+
+.sidebar li a {
+    color: #fff;
+}
+
+@media(max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: absolute;
+        min-height: 100vh;
+        z-index: 10;
+    }
+
+    #side_nav.active {
+        margin-left: 0;
+    }
+}
+
+
+#cont-principal {
+    border-radius: 20px;
+    width: 90%;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 50px;
+    margin: 30px;
+    box-shadow: 8px 5px 35px 15px rgba(0, 0, 0, 0.5);
+}
+
+.cont-uea-padre {
+    box-shadow: 1px 1px 3px black;
+    border: none;
+}
+
+.u {
+    width: 220px;
+    overflow: auto;
+    height: 300px;
+    box-sizing: border-box;
+
+    @media (max-width: 380px) {
+        width: 100%;
+        /* Ancho máximo igual al 100% del contenedor padre */
+    }
+}
+
+.u p:first-child {
+    font-weight: bold;
+}
+
+#cont-ueas {
+    display: none;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+}
+
+/*Estilos para el backdrop*/
+.sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color del fondo con transparencia */
+    z-index: 5; /* Z-index mayor que el del sidebar */
+    display: none; /* Ocultar inicialmente */
+}
+
+
+/* Para los botones */
+.btn{
+    background-color: #094293;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    background-color: #094293;
+    color: white;
+}
+
+
+#cont-informacion-varia{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 93%;
+}
+
+.cont-principal-2 {
+    border-radius: 20px;
+    width: 365px;
+    height: 200px;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 5px;
+    margin: 0px 20px 20px 20px;
+    box-shadow: 8px 5px 15px 5px rgba(0, 0, 0, 0.5);
+    flex-grow: 1;
+}
+
+#pagina-cbi, #calendario{
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#pagina-cbi:hover, #calendario:hover{
+    transform: scale(1.1);
+}
+
+#logo-cbi{
+    width: 200px;
+}
+
+#logo-calendario{
+    width: 80px;
+}
+
+.calendario{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendat{
+    width: 300px;
+    height: 700px;
+}
+
+.link-calendario{
+    text-decoration: none;
+    color: white;
+}

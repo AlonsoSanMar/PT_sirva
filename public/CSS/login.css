@@ -1,0 +1,81 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("../IMG/fondo-login.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1{
+    padding: 20px;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 1px;
+}
+
+#form-login{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5em;
+    box-shadow: 8px 5px 35px 15px rgba(0,0,0,0.5);
+}
+
+#contenedor-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    border: none;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s;
+}
+
+input{
+    padding: 5px;
+    border-radius: 0.5em;
+    border-style: outset;
+    margin-bottom: 30px;
+}
+
+label{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#nuevo-user{
+    background-color: rgb(133, 209, 209);
+    color: black;
+    transition: transform 0.2s;
+}
+
+#nuevo-user-prof{
+    background-color: rgb(133, 209, 143);
+    color: black;
+    transition: transform 0.2s;
+}
+
+#nuevo-user:hover, #nuevo-user-prof:hover, #btn-iniciarSesion:hover{
+    transform: scale(1.1);
+}
+
+
+/* Estilos responsivos */
+@media screen and (max-width: 767px) {
+    #form-login {
+        width: 70%; /* Cambia el ancho para pantallas más pequeñas */
+        min-height: 100vh;
+    }
+}

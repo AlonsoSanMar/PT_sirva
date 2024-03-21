@@ -1,0 +1,67 @@
+#cont-principal {
+    border-radius: 20px;
+    width: 95%;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 50px;
+    margin: 20px;
+    box-shadow: 8px 5px 35px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Para los mensajes recibidos*/
+#cont-mensajes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.msj{
+    width: 100%;
+}
+
+#img-enviarMsj{
+    width: 80px;
+    transform: scale(2);
+    transition: transform 0.2s;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 767px) {
+    #titulo-newMsj{
+        display: none;
+    }
+}
+
+.back-leido{
+    background: linear-gradient(to left, #28a745 15px, #E2FFE3 5px);
+    border: none;
+}
+
+.back-noLeido{
+    background: linear-gradient(to left, #d60a0a 15px, #FFDDDD 5px);
+    border: none;
+}
+
+/* Para los botones */
+.btn{
+    background-color: #094293;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    background-color: #094293;
+    color: white;
+}
+
+.btn-nuevoMensaje{
+    background-color: transparent;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.btn-nuevoMensaje:hover{
+    transform: scale(1.1);
+}

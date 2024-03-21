@@ -1,0 +1,222 @@
+[
+    {
+        "clave":"1111078",
+        "nombre": "Introducción a la Física",
+        "tipo": "OBL",
+        "h_teoria": "",
+        "h_practica": "4",
+        "creditos": "4",
+        "seriacion": [],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1111079",
+        "nombre": "Cinemática y Dinámica de Partículas",
+        "tipo": "OBL",
+        "h_teoria": "4.5",
+        "h_practica": "",
+        "creditos": "9",
+        "seriacion": ["1111078"],
+        "coregistro": ["1112042"],
+        "tronco": "general"
+    },
+    {
+        "clave":"1111092",
+        "nombre": "Laboratorio de Movimiento de una Partícula",
+        "tipo": "OBL",
+        "h_teoria": "",
+        "h_practica": "3",
+        "creditos": "3",
+        "seriacion": ["1111079"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1111081",
+        "nombre": "Dinámica del Cuerpo Rígido",
+        "tipo": "OBL",
+        "h_teoria": "4.5",
+        "h_practica": "",
+        "creditos": "9",
+        "seriacion": ["1111079"],
+        "coregistro": ["1112043"],
+        "tronco": "general"
+    },
+    {
+        "clave":"1111093",
+        "nombre": "Laboratorio del Cuerpo Rígido y Oscilaciones",
+        "tipo": "OBL",
+        "h_teoria": "",
+        "h_practica": "3",
+        "creditos": "3",
+        "seriacion": ["1111081", "1111092"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1111083",
+        "nombre": "Introducción a la Electrostática y Magnetostática",
+        "tipo": "OBL",
+        "h_teoria": "4.5",
+        "h_practica": "",
+        "creditos": "9",
+        "seriacion": ["1111081"],
+        "coregistro": ["1112029"],
+        "tronco": "general"
+    },
+    {
+        "clave":"1112013",
+        "nombre": "Complementos de Matemáticas",
+        "tipo": "OBL",
+        "h_teoria": "4.5",
+        "h_practica": "",
+        "creditos": "9",
+        "seriacion": [],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1112042",
+        "nombre": "Introducción al Cálculo",
+        "tipo": "OBL",
+        "h_teoria": "3.5",
+        "h_practica": "4",
+        "creditos": "11",
+        "seriacion": [],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"Introducción al Cálculo",
+        "nombre": "Cálculo Diferencial",
+        "tipo": "OBL",
+        "h_teoria": "3.5",
+        "h_practica": "4",
+        "creditos": "11",
+        "seriacion": ["1112042"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1112029",
+        "nombre": "Cálculo Integral",
+        "tipo": "OBL",
+        "h_teoria": "3",
+        "h_practica": "3",
+        "creditos": "9",
+        "seriacion": ["1112043"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1112030",
+        "nombre": "Ecuaciones Diferenciales Ordinarias",
+        "tipo": "OBL",
+        "h_teoria": "4.5",
+        "h_practica": "",
+        "creditos": "9",
+        "seriacion": ["1112029"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1113046",
+        "nombre": "Termodinámica",
+        "tipo": "OBL",
+        "h_teoria": "3",
+        "h_practica": "",
+        "creditos": "6",
+        "seriacion": [],
+        "coregistro": ["1112043", "1111081"],
+        "tronco": "general"
+    },
+    {
+        "clave":"1113084",
+        "nombre": "Estructura Atómica y Enlace Químico ",
+        "tipo": "OBL",
+        "h_teoria": "4.5",
+        "h_practica": "",
+        "creditos": "9",
+        "seriacion": [],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1113085",
+        "nombre": "Laboratorio de Reacciones Químicas",
+        "tipo": "OBL",
+        "h_teoria": "",
+        "h_practica": "3",
+        "creditos": "3",
+        "seriacion": [],
+        "coregistro": ["1113084"],
+        "tronco": "general"
+    },
+    {
+        "clave":"1113086",
+        "nombre": "Estructura y Propiedades de los Materiales en Ingeniería",
+        "tipo": "OBL",
+        "h_teoria": "3",
+        "h_practica": "",
+        "creditos": "6",
+        "seriacion": ["1113084"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1113087",
+        "nombre": "Laboratorio de Estructura y Propiedades de los Materiales",
+        "tipo": "OBL",
+        "h_teoria": "",
+        "h_practica": "3",
+        "creditos": "3",
+        "seriacion": ["1113085"],
+        "coregistro": ["1113086"],
+        "tronco": "general"
+    },
+    {
+        "clave":"1151038",
+        "nombre": "Programación Estructurada",
+        "tipo": "OBL",
+        "h_teoria": "2.5",
+        "h_practica": "2",
+        "creditos": "7",
+        "seriacion": ["1112013"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"1151039",
+        "nombre": "Métodos Numéricos en Ingeniería",
+        "tipo": "OBL",
+        "h_teoria": "2.5",
+        "h_practica": "2",
+        "creditos": "7",
+        "seriacion": ["1151038"],
+        "coregistro": ["1112030"],
+        "tronco": "general"
+    },
+    {
+        "clave":"1153001",
+        "nombre": "Probabilidad y Estadística",
+        "tipo": "OBL",
+        "h_teoria": "4.5",
+        "h_practica": "",
+        "creditos": "9",
+        "seriacion": ["1112029"],
+        "coregistro": [],
+        "tronco": "general"
+    },
+    {
+        "clave":"",
+        "nombre": "",
+        "tipo": "",
+        "h_teoria": "",
+        "h_practica": "",
+        "creditos": "",
+        "seriacion": [],
+        "coregistro": [],
+        "tronco": ""
+    }
+]

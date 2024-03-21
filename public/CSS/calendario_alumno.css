@@ -1,0 +1,49 @@
+#cont-principal {
+    border-radius: 20px;
+    width: 95%;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 50px;
+    margin: 20px;
+    box-shadow: 8px 5px 35px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    background-color: #094293;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background-color: #094293;
+    color: white;
+}
+
+/* Estilo personalizado para hacer el calendario responsive */
+#calendar {
+    max-width: 100%;
+}
+
+/* Estilo personalizado para el headerToolbar */
+.fc-header-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.fc-header-left,
+.fc-header-center,
+.fc-header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fc-header-left button,
+.fc-header-center span,
+.fc-header-right button {
+    margin-right: 10px;
+}

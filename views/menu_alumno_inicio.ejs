@@ -1,0 +1,25 @@
+<%- include('templates/sidebar',{estilo: '/CSS/inicio_alumno.css', activeInicio: 'active', activeRiesgo: '', activeRecomendacion: '', activeMensajes:'', activeNoticias: '', activeCuenta: '', activeCalendario: ''})%>
+
+<div class="content">
+    <nav class="navbar navbar-expand-md navbar-light bg-light d-md-none">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between d-md-none d-block">
+             <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-stream"></i></button>
+                <a class="navbar-brand fs-4" href="#"><span class="rounded px-2 py-0 text-white" style="background-color: #3c3c64;">SIRVA</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="cont-principal" class="mx-auto dashboard-content px-3 pt-4">
+        <h1>Bienvenido <%= nuevoUsuario.nombre %></h1>
+    </div>
+
+</div>
+
+
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm' crossorigin='anonymous'></script>
+        <script src="/JS/menu_ctrl_sidebar.js"></script>
+        <script src="/JS/menu_alumno.js"></script>
+        <script src="/JS/cerrar_sesion.js"></script>
+    </body>
+</html>

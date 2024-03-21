@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registrarse</title>
+        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9' crossorigin='anonymous'>
+        
+        <link rel="stylesheet" href="/CSS/registro_alumno_ueas.css">
+    </head>
+    <body class=" overflow-auto">
+        
+        <div id="cont-principal" class="mx-auto">
+            <div>
+                <h1>Registro</h1>
+                <h3>UEA cursadas actualmente</h3>
+                <p>Agrega aquellas UEA que cursas en el trimestre actual:</p>
+            </div>
+            
+            <div class="container mb-3">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                        <div class="form-outline">
+                            <input type="text" id="barra-buscar" class="form-control" placeholder="Ingrese la UEA..." />
+                        </div>
+                    </div>
+                    <div class="col-md-2 mt-2 mt-md-0">
+                        <button id="btn-busca" type="button" class="btn">AGREGAR</button>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div id="sugerencias" class="col-md-8">
+                        <!-- Contenido de sugerencias -->
+                    </div>
+                </div>
+            </div>
+            
+            <!--
+            <div id="cont-seleccion">
+            </div>-->
+
+            <div class="card text-center">
+                <div class="card-header">
+                  UEA
+                </div>
+                <div class="card-body" id="cont-seleccion">
+                  <h5 class="card-title">Añade alguna UEA</h5>
+                  <p class="card-text">Cuando hayas seleccionado correctamente da clic en "Verficar"</p>
+                </div>
+              </div>
+
+            <form  id="form-usuario">
+                <input type="hidden" name="nombre" value="<%= nuevoUsuario.nombre %>">
+                <input type="hidden" name="apellidos" value="<%= nuevoUsuario.apellidos %>">
+                <input type="hidden" name="matricula" value="<%= nuevoUsuario.matricula %>">
+                <input type="hidden" name="anio_ingreso" value="<%= nuevoUsuario.anio_ingreso %>">
+                <input type="hidden" name="periodo" value="<%= nuevoUsuario.periodo %>">
+                <input type="hidden" name="creditos_actuales" value="<%= nuevoUsuario.creditos_actuales %>">
+                <input type="hidden" name="correo" value="<%= nuevoUsuario.correo %>">
+                <input type="hidden" name="password" value="<%= nuevoUsuario.password %>">
+                <!-- Botón para enviar el formulario -->
+                <div id="continuar">
+                    <button id="siguiente" type="button">Verificar</button>
+                </div>
+            </form>
+    
+        </div>
+
+       
+
+        <!-- Buscador
+        <div class="buscador">
+            <div id="searchInput">
+                <input type="text" id="barra-buscar" placeholder="Ingresa la UEA...">
+                <div id="sugerencias">
+                </div>
+            </div>
+            <button id="btn-busca">AGREGAR</button>
+        </div>
+
+        <div id="cont-seleccion">
+        </div>-->
+
+        
+        
+        
+        <script src="/JS/registrarse.js"></script>
+        <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm' crossorigin='anonymous'></script>
+    </body>
+</html>

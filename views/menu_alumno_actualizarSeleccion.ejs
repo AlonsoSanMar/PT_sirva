@@ -1,0 +1,61 @@
+<%- include('templates/sidebar',{estilo: '/CSS/actualizar_seleccion.css', activeInicio: '', activeRiesgo: '', activeRecomendacion: '', activeMensajes:'', activeNoticias: '', activeCuenta: 'active', activeCalendario: ''})%>
+
+            <div id="cont-principal" class="mx-auto dashboard-content px-3 pt-4">
+                <div class="text-center">
+                    <h1>Actualización</h1>
+                    <p>Agrega aquellas UEA que cursas en el trimestre actual</p>
+                    <p><strong>Nota: Al dar clic en "Aprobado" los creditos de esa UEA se suman automaticamente a los tuyos.</strong></p>
+                </div>
+                
+                <div class="container mb-3">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-6">
+                            <div class="form-outline">
+                                <input type="text" id="barra-buscar" class="form-control" placeholder="Ingrese la UEA..." />
+                            </div>
+                        </div>
+                        <div class="col-md-2 mt-2 mt-md-0">
+                            <button id="btn-busca" type="button" class="btn">AGREGAR</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div id="sugerencias" class="col-md-8">
+                            <!-- Contenido de sugerencias -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!--
+                <div id="cont-seleccion">
+                </div>-->
+    
+                <div class="card text-center">
+                    <div class="card-header">
+                      UEA
+                    </div>
+                    <div class="card-body" id="cont-seleccion">
+                      <h5 class="card-title">Añade alguna UEA</h5>
+                      <p class="card-text">Cuando hayas seleccionado correctamente da clic en "Verficar"</p>
+                    </div>
+                  </div>
+    
+                <form  id="form-usuario">
+                    <input type="hidden" name="matricula" value="<%= nuevoUsuario.matricula %>">
+                    <input type="hidden" name="creditos_actuales" value="<%= nuevoUsuario.creditos_actuales %>">
+                    <input type="hidden" name="ueasSeleccionadas" id="ueasActuales" value="<%= nuevoUsuario.ueasSeleccionadas %>">
+                    <!-- Botón para enviar el formulario -->
+                    <div id="continuar">
+                        <button id="siguiente" type="button">Verificar</button>
+                    </div>
+                </form>
+            </div>
+                
+
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm' crossorigin='anonymous'></script>
+    <script src="/JS/menu_ctrl_sidebar.js"></script>
+    <script src="/JS/actualizar_seleccion.js"></script>
+    <script src="/JS/cerrar_sesion.js"></script>
+</body>
+</html>

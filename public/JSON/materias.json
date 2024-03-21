@@ -1,0 +1,43 @@
+[
+    {
+        "clave": "1100037",
+        "nombre": "Introducción a la Ingeniería",
+        "creditos": "6",
+        "tipo": "OBL",
+        "seriacion": [],
+        "coregistro": []
+    },
+    {
+        "clave": "1112013",
+        "nombre": "Complementos de Matematicas",
+        "creditos": "9",
+        "tipo": "OBL",
+        "seriacion": [],
+        "coregistro": []
+    },
+    {
+        "clave": "1112042",
+        "nombre": "Introducción al calculo",
+        "creditos": "11",
+        "tipo": "OBL",
+        "seriacion": [],
+        "coregistro": []
+    },
+    {
+        "clave": "1111079",
+        "nombre": "Cinematica y Dinamica de Particulas",
+        "creditos": "9",
+        "tipo": "OBL",
+        "seriacion": ["1111078"],
+        "coregistro": ["1112042"]
+    },
+    {
+        "clave": "1112043",
+        "nombre": "Calculo Diferencial",
+        "creditos": "11",
+        "tipo": "OBL",
+        "seriacion": ["1112042"],
+        "coregistro": []
+    }
+]
+  

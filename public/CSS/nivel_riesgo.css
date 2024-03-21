@@ -1,0 +1,189 @@
+h1 {
+    color: brown;
+}
+
+#intro-riesgo{
+    font-size: 18px;
+}
+
+
+.progress {
+    position: relative;
+    height: 100px;
+    font-size: 25px;
+    background: linear-gradient(90deg, #ea4242, #f3f368, #48a148);
+    box-shadow: 3px 3px 6px black;
+    border-radius: 1em;
+}
+
+.progress-bar {
+    background: none;
+}
+
+.progress i {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    /* ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    transition: left 2s ease-in-out; /* Animación para la imagen */
+}
+
+#progreso-creditos{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#msj-progreso-creditos{
+    text-shadow: 1px 1px 3px black;
+    box-shadow: 3px 3px 6px black;
+}
+
+/* Progress Circular */
+
+#progreso-anio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#cont-info-graficas{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.titulo-porcentaje{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.skill{
+    margin-top: 30px;
+    width: 180px;
+    height: 180px;
+    /*background: cornflowerblue;*/
+    position: relative;
+}
+
+.outer{
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                -6px -6px 10px -1px rgba(255, 255, 255, 0.7)
+}
+
+.inner{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+                -0.5px 0.5px 0px rgba(255, 255, 255, 1),
+                0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+                0px 12px 10px -10px rgba(0, 0, 0, 0.05)
+}
+
+#number{
+    font-weight: 600;
+    color: #555;
+}
+
+circle{
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472; /* 472 es el maximo*/
+    stroke-dashoffset: 472;
+    /*animation: anim 2s linear forwards;*/
+}
+
+svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#cont-progresoCircular{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#msj-progreso-anio{
+    box-shadow: 3px 3px 6px black;
+}
+
+/*
+@keyframes anim{
+    100%{
+        stroke-dashoffset: 0;
+    }
+}*/
+
+#cont-principal {
+    border-radius: 20px;
+    width: 95%;
+    background-color: rgb(255, 255, 255) !important;
+    padding: 50px;
+    margin: 20px;
+    box-shadow: 8px 5px 35px 15px rgba(0, 0, 0, 0.5);
+}
+
+#creditos-resMin{
+    font-size: 18px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    padding: 20px;
+    font-size: 12px;
+  }
+
+.image-container:hover .overlay {
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 767px) {
+    #creditos-resMin {
+        font-size: 8px;
+    }
+}
+
+.btn{
+    background-color: #094293;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    background-color: #094293;
+    color: white;
+}

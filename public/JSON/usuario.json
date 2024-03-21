@@ -1,0 +1,10 @@
+{
+    "nombre": "nombr",
+    "apellidos":"Sanchez",
+    "trimestre": "19-0",
+    "matricula": "2193000496",
+    "creditos_actuales": "444",
+    "correo": "al2193000486@azc.uam.mx",
+    "password":"abc",
+    "ueasSeleccionadas": ["1110123", "123244"]
+}

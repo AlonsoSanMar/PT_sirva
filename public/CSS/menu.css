@@ -1,0 +1,73 @@
+body {
+    background: #eee;
+}
+
+/* CSS para desactivar el desplazamiento del cuerpo cuando el sidebar está activo */
+body.sidebar-active {
+    overflow: hidden;
+}
+
+
+#side_nav {
+    background: #690217;
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+hr.h-color {
+    background: #eee;
+}
+
+.sidebar li.active {
+    background: #eee;
+    border-radius: 8px;
+}
+
+.sidebar li.active a,
+.sidebar li.active a:hover {
+    color: #000;
+}
+
+.sidebar li:not(.active){
+    transition: all 0.2s;
+}
+
+.sidebar li:not(.active):hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.sidebar li a {
+    color: #fff;
+}
+
+@media(max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: absolute;
+        min-height: 100vh;
+        z-index: 10;
+    }
+
+    #side_nav.active {
+        margin-left: 0;
+    }
+}
+
+/*Estilos para el backdrop*/
+.sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color del fondo con transparencia */
+    z-index: 5; /* Z-index mayor que el del sidebar */
+    display: none; /* Ocultar inicialmente */
+}
