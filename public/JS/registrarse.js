@@ -20,14 +20,14 @@ function eliminaUeaDeSeleccion(uea) {
 
 // Alerta sobre si los creditos actuales del usuario son los correctos Falta checar que solamente muestre el msj una vez
 let msjCreditos = false;
-function alertaCreditosMinimos(creditos){
+function alertaCreditosMinimos(creditos) {
     let btn = document.getElementById('siguiente');
-    if(parseInt(creditosUser) < creditos){
-        if(!msjCreditos){
+    if (parseInt(creditosUser) < creditos) {
+        if (!msjCreditos) {
             alert("Tus creditos actuales no te permiten esta seleccion de UEA. Realiza la seleccion correcta");
         }
         msjCreditos = true;
-    }else{
+    } else {
         msjCreditos = false;
     }
 }
@@ -105,7 +105,7 @@ function creditosSuficientes(uea) {
             console.log("No tiene seriacion por creditos");
         }
     }
-    
+
 
     /* Verificar si la serialización contiene el patrón deseado
     if (regex.test(uea.seriacion)) {
@@ -179,7 +179,7 @@ function checaCoregistro(uea) {
 
 // Al agregar hay que checar si no está ya agregada
 function agregaUea(uea) {
-    if(ueas.length == 0){        
+    if (ueas.length == 0) {
         removerNodos('cont-seleccion');
         let card = document.getElementById('cont-seleccion');
         card.classList.add('d-flex');
@@ -385,6 +385,15 @@ async function comparaCreditosMinimos() {
     }
 }
 
+function sumarCreditos() {
+    let ueasCreditos = 0;
+    for (let i = 0; i < ueas.length; ++i) {
+        ueasCreditos += parseInt(ueas[i].creditos);
+    }
+    return ueasCreditos;
+}
+
+let creditos_inscritos = 0
 
 document.getElementById('btn-busca').addEventListener('click', async () => {
     let btn = document.getElementById('siguiente');
@@ -395,7 +404,7 @@ document.getElementById('btn-busca').addEventListener('click', async () => {
         const data = await response.json();
 
         const resultados = data.filter(uea => uea.nombre.toLowerCase() === term.toLowerCase());
-        
+
         // Verificamos que exista algo, si no hay nada no se agrega nada
         if (resultados.length > 0) {
             document.getElementById('cont-seleccion').style.display = 'flex';
@@ -406,7 +415,7 @@ document.getElementById('btn-busca').addEventListener('click', async () => {
             checaCoregistro(resultados[0]);
             creditosSuficientes(resultados[0]);
         }
-        
+
     }
 });
 
@@ -458,30 +467,38 @@ function registroUsuario(nombre, apellidos, matricula, anio_ingreso, periodo, cr
 
     const url = 'guardar';
 
+    creditos_inscritos = sumarCreditos();
+    //console.log("Creditos inscritos:", creditos_inscritos);
+
     if (ueas.length == 0) {
         alert("No has añadido ninguna UEA");
     } else {
         comparaCreditosMinimos().then(() => {
             if (!msjCreditos) {
-                if (confirm("¿Estás seguro con la eleccion de UEA?")) {
-                    fetch(url, {
-                        method: 'POST',
-                        body: JSON.stringify(data),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.status == 200) {
-                            window.location.replace('/registro/alumno/guardar');
-                        } else {
-                            alert('Error desconocido, contacte al administrador');
-                        }
-                    }).catch(error => {
-                        console.log('Error al hacer la petición');
-                        console.log(error);
-                    });
+                if (creditos_inscritos < 64) {
+                    if (confirm("¿Estás seguro con la eleccion de UEA?")) {
+                        fetch(url, {
+                            method: 'POST',
+                            body: JSON.stringify(data),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        }).then(response => {
+                            if (response.status == 200) {
+                                window.location.replace('/registro/alumno/guardar');
+                            } else {
+                                alert('Error desconocido, contacte al administrador');
+                            }
+                        }).catch(error => {
+                            console.log('Error al hacer la petición');
+                            console.log(error);
+                        });
+                    }
+                }else {
+                    alert("Tienes exceso de creditos... :( . Realiza una selección correcta");
                 }
             }
+
         });
     }
 }

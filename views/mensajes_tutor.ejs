@@ -8,6 +8,14 @@
                         <span id="titulo-newMsj">Nuevo Mensaje</span>
                     </button>
                 </div>
+                
+                <nav class="navbar bg-body-tertiary rounded-bottom">
+                  <form class="container-fluid justify-content-evenly">
+                    <button class="botonMenu btn-activo" type="button" id="btn-recibidos"><i class="fa-solid fa-inbox"></i> Recibidos</button>
+                    <button class="botonMenu" type="button" id="btn-enviados"><i class="fa-solid fa-rocket"></i> Enviados</button>
+                  </form>
+                </nav>
+
                 <div id="cont-mensajes">
                         <% for( let i = 0; i < mensajes.length; i++ ) { %>
                             <div class="card text-center mt-3 msj">
@@ -32,6 +40,25 @@
                         <% } %>
                 </div>
                 
+                <div id="cont-mensajes-enviados">
+                  <% for( let i = 0; i < mensajesEnviados.length; i++ ) { %>
+                      <div class="card text-center mt-3 msj">
+                          <div class="card-header back-leido text-black">
+                                <i class="fa-solid fa-envelope-circle-check"></i>                                
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">Enviado a:  <span id="origen-msj-enviado<%= i %>"><%= mensajesEnviados[i].destino %></span></h5>
+                            <input type="hidden" id="msj-id-enviado<%= i %>" value="<%= mensajesEnviados[i]._id %>">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-mensaje-enviado<%= i %>">Leer mensaje</button>
+                          <button type="button" class="btn bg-danger btn-eliminar-msj-enviado"><i class="fa-solid fa-circle-xmark"></i></button>
+                          </div>
+                          <div class="card-footer text-body-secondary">
+                              <%= mensajesEnviados[i].fechaEnvio %> <%= mensajesEnviados[i].horaEnvio %>
+                          </div>
+                        </div>
+                  <% } %>
+              </div>
+
             </div>
                 
         </div>
@@ -66,8 +93,8 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn bg-dark bg-black" data-bs-dismiss="modal" id="no-enviarMsj">Cerrar</button>
-              <button type="button" class="btn" id="enviar-msj">Enviar mensaje</button>
+              <button type="button" class="btn" data-bs-dismiss="modal" id="no-enviarMsj">Cerrar</button>
+              <button type="button" class="btn bg-dark" id="enviar-msj">Enviar mensaje</button>
             </div>
           </div>
         </div>
@@ -90,8 +117,31 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary bg-black leer-msj" data-bs-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn responder-msj" data-bs-dismiss="modal">Responder</button>
+                  <button type="button" class="btn leer-msj" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn bg-black responder-msj" data-bs-dismiss="modal">Responder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% } %>
+
+      <!-- Modal para cada mensaje enviado -->
+      <% for( let i = 0; i < mensajesEnviados.length; i++ ) { %>
+        <div class="modal fade" id="modal-mensaje-enviado<%= i %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-3" id="exampleModalLabel"><strong><%= mensajesEnviados[i].titulo %></strong></h1>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="cuerpo-envio" class="col-form-label">Mensaje:</label>
+                      <textarea class="form-control" id="cuerpo-envio" readonly><%= mensajesEnviados[i].cuerpo %></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
                 </div>
               </div>
             </div>

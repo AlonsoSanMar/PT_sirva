@@ -135,6 +135,16 @@ for (let i = 0; i < btnsEliminar.length; ++i) {
     });
 }
 
+let btnsEliminar_Enviar = document.getElementsByClassName('btn-eliminar-msj-enviado');
+
+for (let i = 0; i < btnsEliminar_Enviar.length; ++i) {
+    btnsEliminar_Enviar[i].addEventListener('click', () => {
+        let msjID = document.getElementById('msj-id-enviado' + i).value; // Suponiendo que tengas un campo oculto con el ID del mensaje
+        eliminarMensaje(msjID);
+        console.log(msjID);
+    });
+}
+
 function eliminarMensaje(mensajeId) {
     const url = `mensajeEliminar/${mensajeId}`;
 
@@ -172,3 +182,31 @@ for (let i = 0; i < btnsResponder.length; ++i) {
         marcarMensajeLeidoAlResponder(msjID);
     });
 }
+
+// Función para cambiar de mensajes recibidos a enviados
+document.getElementById('btn-enviados').addEventListener('click', () => {
+    let btnEnviados = document.getElementById('btn-enviados');
+    let btnRecibidos = document.getElementById('btn-recibidos');
+    btnEnviados.classList.add('btn-activo');
+    btnRecibidos.classList.remove('btn-activo');
+
+    //Para el display
+    let contRecibidos = document.getElementById('cont-mensajes');
+    let contEnviados = document.getElementById('cont-mensajes-enviados');
+    contRecibidos.style.display = 'none';
+    contEnviados.style.display = 'flex';
+})
+
+// Función para cambiar de mensajes recibidos a enviados
+document.getElementById('btn-recibidos').addEventListener('click', () => {
+    let btnEnviados = document.getElementById('btn-enviados');
+    let btnRecibidos = document.getElementById('btn-recibidos');
+    btnRecibidos.classList.add('btn-activo');
+    btnEnviados.classList.remove('btn-activo');
+
+    //Para el display
+    let contRecibidos = document.getElementById('cont-mensajes');
+    let contEnviados = document.getElementById('cont-mensajes-enviados');
+    contEnviados.style.display = 'none';
+    contRecibidos.style.display = 'flex';
+})

@@ -2,6 +2,7 @@ let ueas = []; // Aqui guardo todas las ueas que el usuario curso, para crear su
 let ueasSeriadasRevisadas = [];
 let creditosUser = document.getElementsByName('creditos_actuales')[0].value;
 let sumaCreditos = 0;
+let creditos_inscritos = 0
 
 
 // Esta parte es para traer las ueas que está cursando actualmente
@@ -420,6 +421,14 @@ function actualizarFormulario() {
     });
 }
 
+function sumarCreditos() {
+    let ueasCreditos = 0;
+    for (let i = 0; i < ueas.length; ++i) {
+        ueasCreditos += parseInt(ueas[i].creditos);
+    }
+    return ueasCreditos;
+}
+
 // Para la barra de busqueda
 const searchInput = document.getElementById('barra-buscar');
 const sugerencias = document.getElementById('sugerencias');
@@ -550,30 +559,38 @@ function registroUsuario(matricula, creditos_actuales, ueasSeleccionadas) {
 
     const url = 'actualizarSeleccion';
 
+    creditos_inscritos = sumarCreditos();
+    //console.log("Creditos inscritos:", creditos_inscritos);
+
     if (ueas.length == 0) {
         alert("No has añadido ninguna UEA");
     } else {
         comparaCreditosMinimos().then(() => {
             if (!msjCreditos) {
-                if (confirm("¿Estás seguro con la eleccion de UEA?")) {
-                    fetch(url, {
-                        method: 'POST',
-                        body: JSON.stringify(data),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }).then(response => {
-                        if (response.status == 200) {
-                            window.location.replace('/menu/alumno/inicio');
-                        } else {
-                            alert('Error desconocido, contacte al administrador');
-                        }
-                    }).catch(error => {
-                        console.log('Error al hacer la petición');
-                        console.log(error);
-                    });
+                if (creditos_inscritos < 64) {
+                    if (confirm("¿Estás seguro con la eleccion de UEA?")) {
+                        fetch(url, {
+                            method: 'POST',
+                            body: JSON.stringify(data),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        }).then(response => {
+                            if (response.status == 200) {
+                                window.location.replace('/registro/alumno/inicio');
+                            } else {
+                                alert('Error desconocido, contacte al administrador');
+                            }
+                        }).catch(error => {
+                            console.log('Error al hacer la petición');
+                            console.log(error);
+                        });
+                    }
+                }else {
+                    alert("Tienes exceso de creditos... :( . Realiza una selección correcta");
                 }
             }
+
         });
     }
 }

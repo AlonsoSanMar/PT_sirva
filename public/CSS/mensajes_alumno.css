@@ -16,6 +16,14 @@
     justify-content: center;
 }
 
+/* Para los mensajes recibidos*/
+#cont-mensajes-enviados{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .msj{
     width: 100%;
 }
@@ -64,4 +72,20 @@
 
 .btn-nuevoMensaje:hover{
     transform: scale(1.1);
+}
+
+.botonMenu {
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s;
+    padding: 10px;
+}
+
+.botonMenu:hover {
+    transform: scale(1.1);
+}
+
+.btn-activo{
+    background-color: black;
+    color: white;
 }

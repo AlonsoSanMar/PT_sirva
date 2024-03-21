@@ -146,18 +146,17 @@ a.sidebar-link {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 98%;
 }
 
 .cont-principal-2 {
     border-radius: 20px;
-    width: 365px;
+    width: 100%;
+    max-width: 365px;
     height: 200px;
     background-color: rgb(255, 255, 255) !important;
     padding: 5px;
     margin: 0px 20px 20px 20px;
     box-shadow: 8px 5px 15px 5px rgba(0, 0, 0, 0.5);
-    flex-grow: 1;
 }
 
 .cont-principal-3 {

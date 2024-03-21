@@ -152,6 +152,7 @@ router.get('/alumno/mensajes', async (req, res) => {
         try {
             const usuario = await Usuario.findOne({ _id: req.session.idUsuario });
             let mensajes = await Mensaje.find({ destino: usuario.matricula });
+            let mensajesEnviados = await Mensaje.find({ origen: usuario.matricula });
             const mensajesNoLeidos = await Mensaje.find({ destino: usuario.matricula, status: false });
 
             // Ordenar los mensajes por día y  por hora
@@ -167,10 +168,23 @@ router.get('/alumno/mensajes', async (req, res) => {
                 }
             });
 
+            mensajesEnviados.sort((a, b) => {
+                const fechaA = new Date(parseDateString(a.fechaEnvio));
+                const fechaB = new Date(parseDateString(b.fechaEnvio));
+                const horaA = parseTimeString(a.horaEnvio);
+                const horaB = parseTimeString(b.horaEnvio);
+                if (fechaB.getTime() !== fechaA.getTime()) {
+                    return fechaB - fechaA; // Orden descendente (los más recientes primero)
+                } else {
+                    return horaB - horaA;
+                }
+            });
+
             console.log(req.session.id);
             res.render('mensajes_alumno', {
                 nuevoUsuario: usuario,
                 mensajes: mensajes,
+                mensajesEnviados: mensajesEnviados,
                 mensajesNoLeidos: mensajesNoLeidos
             });
         } catch (error) {
@@ -474,6 +488,7 @@ router.get('/tutor/mensajes', async (req, res) => {
         try {
             const usuario = await Tutor.findOne({ _id: req.session.idUsuario });
             let mensajes = await Mensaje.find({ destino: usuario.correo });
+            let mensajesEnviados = await Mensaje.find({ origen: usuario.correo });
             const mensajesNoLeidos = await Mensaje.find({ destino: usuario.correo, status: false });
 
             // Ordenar los mensajes por día y  por hora
@@ -489,10 +504,23 @@ router.get('/tutor/mensajes', async (req, res) => {
                 }
             });
 
+            mensajesEnviados.sort((a, b) => {
+                const fechaA = new Date(parseDateString(a.fechaEnvio));
+                const fechaB = new Date(parseDateString(b.fechaEnvio));
+                const horaA = parseTimeString(a.horaEnvio);
+                const horaB = parseTimeString(b.horaEnvio);
+                if (fechaB.getTime() !== fechaA.getTime()) {
+                    return fechaB - fechaA; // Orden descendente (los más recientes primero)
+                } else {
+                    return horaB - horaA;
+                }
+            });
+
             console.log(req.session.id);
             res.render('mensajes_tutor', {
                 nuevoUsuario: usuario,
                 mensajes: mensajes,
+                mensajesEnviados: mensajesEnviados,
                 mensajesNoLeidos: mensajesNoLeidos
             });
         } catch (error) {
