@@ -71,3 +71,8 @@ hr.h-color {
     z-index: 5; /* Z-index mayor que el del sidebar */
     display: none; /* Ocultar inicialmente */
 }
+
+.modal-header{
+    background-color: #d60a0a;
+    color: white;
+}

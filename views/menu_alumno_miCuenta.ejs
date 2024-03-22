@@ -83,8 +83,12 @@
             <div class="cont-principal-2" class="">
                 <div class="cont-info-links mt-4">
                     <h1>Datos del tutor</h1>
-                    <p>Nombre: <span class="datos-tutor"><%= tutor.nombre %> <%= tutor.apellidos %> </span></p>
-                    <p>Correo: <span class="datos-tutor"><%= tutor.correo %></span></p>
+                    <% if (tutor.correo == undefined) { %>
+                        <h5 class="mt-3">Sin Tutor asignado...</h5>
+                    <% } else {%>
+                        <p>Nombre:<span class="datos-tutor"><%= tutor.nombre %> <%= tutor.apellidos %> </span></p>
+                        <p>Correo: <span class="datos-tutor"><%= tutor.correo %></span></p>
+                    <% } %>
                 </div>
             </div>
 

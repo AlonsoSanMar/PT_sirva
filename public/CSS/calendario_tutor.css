@@ -47,3 +47,14 @@
     background-color: #d60a0a;
     color: white;
 }
+
+/* Estilos responsivos */
+@media screen and (max-width: 767px) {
+    .btn-Agendar {
+        font-size: 10px;
+        margin-left: 5px;
+    }
+    #titulo-newMsj{
+        font-size: 12px;
+    }
+}

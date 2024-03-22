@@ -91,7 +91,7 @@ async function buscarMatricula(matricula) {
         if (response.status == 200) {
             const data = await response.text();
             //console.log(data); // Imprimir respuesta del servidor en la consola
-            alert(data);
+            //alert(data);
             btnSig.removeAttribute('disabled');
             inpCreditos.removeAttribute('readonly');
             inpConfContr.removeAttribute('readonly');
