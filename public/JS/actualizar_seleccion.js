@@ -577,7 +577,7 @@ function registroUsuario(matricula, creditos_actuales, ueasSeleccionadas) {
                             }
                         }).then(response => {
                             if (response.status == 200) {
-                                window.location.replace('/registro/alumno/inicio');
+                                window.location.replace('/menu/alumno/inicio');
                             } else {
                                 alert('Error desconocido, contacte al administrador');
                             }
