@@ -12,10 +12,11 @@
                 <div>
                     <% for( let i = 0; i < tutorados.length; i++ ) { %>
                         <div class="card text-center mt-3">
-                            <div class="card-header pt-1 mb-0">
-                                <span id="matricula-tutorado<%= i %>" class="titulo-matricula"><%= tutorados[i].matricula %></span>
+                            <div class="card-header pt-1 mb-0 bg-body-secondary">
+                                <i class="fa-solid fa-chalkboard-user"></i>
                             </div>
                             <div class="card-body">
+                              <span id="matricula-tutorado<%= i %>" class="titulo-matricula"><%= tutorados[i].matricula %></span>
                               <h3><%= tutorados[i].nombre %> <%= tutorados[i].apellidos %></h3>
                                 <div class="d-flex justify-content-evenly mt-3 w-100">
                                     <button type="button" class="btn btn-consultar-tutorado" id="consultar-tutorado<%= i %>" data-bs-toggle="modal" data-bs-target="#modal-mensaje<%= i %>"><i class="fa-solid fa-book"></i> Consultar </button>
