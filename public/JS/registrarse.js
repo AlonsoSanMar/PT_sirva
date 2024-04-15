@@ -125,7 +125,6 @@ function creditosSuficientes(uea) {
 }
 
 //Funcion para verificar que la uea agregada se puede cursar actualmente con las ya agregadas anteriormente
-//Falta verificar aquellas ueas que requieren un numero de creditos especificos
 async function verificaUeas(uea) {
     let regex = /^[0-9]{2,3}\s*Créditos/i;
     if (uea.seriacion.length > 0) {
