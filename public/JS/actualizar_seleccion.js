@@ -359,6 +359,19 @@ function agregaUea(uea) {
             actualizarFormulario();
 
             comparaCreditosMinimos();
+
+            if (uea.coregistro.length > 0) {
+                //console.log("Ueas con coregistro eliminadas..");
+                uea.coregistro.forEach(coregistro => {
+                    fetch(`/registro/buscaUea?clave=${coregistro}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (ueas.find(u => u.clave === data[0].clave)) { 
+                                eliminaUeaDeSeleccion(data[0])
+                            }
+                        })
+                });
+            }
         });
 
 /*
