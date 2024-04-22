@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -219,4 +219,23 @@
 .modal-header{
     background-color: #d60a0a;
     color: white;
+}
+
+
+/* Para los contenedores de las recomendaciones */
+
+/* Para el contenedor de opciones */
+.cont-opciones{
+    font-size: 18px;
+}
+
+.instrucciones-recomendacion{
+    font-size: 18px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 767px) {
+    .cont-opciones {
+        font-size: 12px;
+    }
 }

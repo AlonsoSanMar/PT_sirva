@@ -42,10 +42,10 @@
                 </div>
                 <div class="modal-body">
                     <div id="cont-principal" class="mx-auto dashboard-content px-3 pt-4">
-                        <h1>NIVEL DE RIESGO</h1>
+                        <h1>PROGRESO</h1>
         
                         <div class="container-fluid mb-2">
-                            <p class="intro-riesgo">El siguiente nivel de riesgo esta basado en el desempeño del alumno equivalente a sus créditos actuales y trimestre de ingreso</p>
+                            <p class="intro-riesgo">La siguiente información esta basado en el desempeño del alumno equivalente a sus créditos actuales y trimestre de ingreso</p>
                             <div class="row">
                                 <div class="col">
                                     <label class="mb-2">Créditos: </label>
@@ -69,10 +69,10 @@
                             <div class="progress mt-4">
                                 <div class="progress-bar" id="nivelRiesgo<%= i %>" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                 <div class="image-container">
-                                <i class="fa-solid fa-cat animate-rotate" id="img-riesgo<%= i %>"></i>
+                                <i class="fa-solid fa-graduation-cap" id="img-riesgo<%= i %>"></i>
                                 <div class="overlay">
                                     <h2><%= tutorados[i].nombre %> <span class="creditos-resMin">( Créditos restantes mínimos: <%= 472 - tutorados[i].creditos_actuales %> )</span> </h2>
-                                    <p>Matricula: <%= tutorados[i].matricula %></p>
+                                    <p id="matricula-tutorado<%= i %>">Matricula: <%= tutorados[i].matricula %></p>
                                 </div>
                             </div>
                             </div>
@@ -113,24 +113,44 @@
         
                             <div class="cont-info-graficas">
         
-                                <div class="titulo-porcentaje">
-                                    <p class="h4 pb-2 mb-4 text-primary-emphasis border-bottom border-primary">Resumen</p>
-                                </div>
-        
-                                <div id="msj-progreso-creditos<%= i %>" class="msj-progreso-creditos border border-2 rounded-end-5 p-3 mb-4 mt-3 text-white text-center">
-                                </div>
-                                <div id="msj-progreso-anio<%= i %>" class="msj-progreso-anio border border-2 rounded-end-5 p-3 mb-3 mt-1 text-white text-center">
+                                <div id="cont-progresoCircula-avance<%= i %>">
+                                    <div class="titulo-porcentaje">
+                                        <p class="h4 pb-2 mb-4 text-primary-emphasis border-bottom border-primary">Porcentaje de avance actual</p>
+                                    </div>
+                                    <div class="skill mt-0" style="margin-left: 35px">
+                                        <div class="outer">
+                                            <div class="inner">
+                                                <div id="number-avance<%= i %>">
+                                                    65%
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                    <svg class="svg-circulo" xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Porcentaje actual basado en los créditos actuales">
+                                        <defs>
+                                           <linearGradient id="GradientColor<%= i %>" x1="100%" y1="30%" x2="60%" y2="100%">
+                                              <stop offset="0%" stop-color="#7DFC7F" />
+                                              <stop offset="60%" stop-color="#F0FC95" />
+                                              <stop offset="100%" stop-color="#e91e63" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circle" id="circulo-avance<%= i %>" cx="80" cy="80" r="70" stroke-linecap="round" />
+                                    </svg>
+                    
+                                    </div>
                                 </div>
         
                             </div>
                         </div>
 
-                        <div id="cont-ueas<%= i %>" class="cont-ueas">
+                        <div class="cont-ueas">
+                            <span id="cont-ueas<%= i %>">
                             <% tutorados[i].ueasSeleccionadas.forEach(element=> { %>
                                 <p>
                                     <%= element %>
                                 </p>
                                 <% }) %>
+                            </span>
                         </div>
                 
                         <h1 class="mt-3 border-top border-primary">CURSANDO ACTUALMENTE</h1>
@@ -146,11 +166,90 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn bg-light text-black" data-bs-dismiss="modal" id="cerrar-riesgo<%= i %>">Cerrar</button>
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle<%= i %>" data-bs-toggle="modal">Recomendación de materias</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!--Modal para la recomendacion de materias-->
+        <div class="modal fade" id="exampleModalToggle<%= i %>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Recomendación de materias</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cont-principal" class="mx-auto dashboard-content px-3 pt-4">
+                        <h1>Recomendacion de Materias</h1>
+            
+                        <div class="instrucciones-recomendacion">
+                            <p>Las recomendaciones de materias están basadas directamente en las ueas que estas cursando actualmente. 
+                                Para poder generar las recomendaciones solo es necesario que elijas los campos que más se acomoden a ti.
+                                Tomando en cuenta que: Minima (menos de 25 créditos), Moderada (entre 30 y 45 créditos) y Intensa (más de 50 créditos).
+                            </p>
+                        </div>
+            
+                        <div id="cont-opciones<%= i %>" class="card text-center mb-3 shadow bg-body-tertiary rounded lead cont-opciones">
+                            <div class="card-header bg-secondary border-subtle text-white">
+                                Opciones    
+                            </div>
+                            <div id="cont-carga-academica<%= i %>" class="d-flex justify-content-evenly mb-4 mt-4">
+                                <label> <strong> Nivel de carga académica: </strong></label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="carga-minima<%= i %>" value="minima">
+                                    <label class="form-check-label" for="inlineRadio1">Mínima</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="carga-moderada<%= i %>" value="moderada">
+                                    <label class="form-check-label" for="inlineRadio2">Moderada</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="carga-intensa<%= i %>" value="intensa">
+                                    <label class="form-check-label" for="inlineRadio3">Intensa</label>
+                                </div>
+                            </div>
+            
+                            <div id="tipo-priorizado<%= i %>" class="d-flex justify-content-evenly mb-3 mt-2">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="opcionesTipo" role="switch" id="tipo-obl<%= i %>" value="OBL">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Priorizar UEA obligatoria</label>
+                                  </div>
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" name="opcionesTipo" role="switch" id="tipo-opt<%= i %>" value="OPT">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Priorizar UEA optativa</label>
+                                  </div>
+                            </div>
+            
+                            <div class="d-flex justify-content-center mb-4">
+                                <button type="button" class="btn btn-generar-recomendacion" id="btn-generar<%= i %>"> Generar </button>
+                            </div>
+                        </div>
+            
+                        <div id="cont-recomendaciones<%= i %>">
+                            <div class="card text-center mb-3 shadow bg-body-tertiary rounded">
+                                <div class="card-header bg-primary border-subtle text-white">
+                                1. Recomendacion de Materias
+                                </div>
+                                <div class="card-body d-flex flex-wrap justify-content-center align-items-center gap-2" id="cont-seleccion-1<%= i %>">
+                                </div>
+                            </div>
+                            <!--<button id="boton-generar-pdf" class="btn mt-3">Generar PDF</button>-->
+                        </div>
+            
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#modal-mensaje<%= i %>" data-bs-toggle="modal">Volver a progreso</button>
                 </div>
             </div>
             </div>
         </div>
     <% } %>
+
+    
     
 
     <!--Modal para agregar tutorados-->

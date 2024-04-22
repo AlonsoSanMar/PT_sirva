@@ -1,10 +1,10 @@
 <%- include('templates/sidebar',{estilo: '/CSS/nivel_riesgo.css', activeInicio: '', activeRiesgo: 'active', activeRecomendacion: '', activeMensajes:'', activeNoticias: '', activeCuenta: '', activeCalendario: ''})%>
 
             <div id="cont-principal" class="mx-auto dashboard-content px-3 pt-4">
-                <h1>NIVEL DE RIESGO</h1>
+                <h1>Progreso</h1>
 
                 <div class="container-fluid mb-2">
-                    <p id="intro-riesgo">El siguiente nivel de riesgo esta basado en el desempeño del alumno equivalente a sus créditos actuales y trimestre de ingreso</p>
+                    <p id="intro-riesgo">La siguiente información esta basado en el desempeño del alumno equivalente a sus créditos actuales y trimestre de ingreso</p>
                     <div class="row">
                         <div class="col">
                             <label class="mb-2">Créditos: </label>
@@ -28,7 +28,7 @@
                     <div class="progress mt-4">
                         <div class="progress-bar" id="nivelRiesgo" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                         <div class="image-container">
-                        <i class="fa-solid fa-cat animate-rotate" id="img-riesgo"></i>
+                        <i class="fa-solid fa-graduation-cap" id="img-riesgo"></i>
                         <div class="overlay">
                             <% if (nuevoUsuario.creditos_actuales < 472) { %>
                                 <h2><%= nuevoUsuario.nombre %> <span id="creditos-resMin">( Créditos restantes mínimos: <%= 472 - nuevoUsuario.creditos_actuales %> )</span> </h2>
@@ -49,7 +49,7 @@
 
                     <div id="cont-progresoCircular">
                         <div class="titulo-porcentaje">
-                            <p class="h4 pb-2 mb-4 text-primary-emphasis border-bottom border-primary">Porcentaje de termino con respecto al trimestre de ingreso</p>
+                            <p class="h4 pb-2 mb-4 text-primary-emphasis border-bottom border-primary">Porcentaje de avance estimado con respecto al trimestre de ingreso</p>
                         </div>
                         <div class="skill mt-0">
                             <div class="outer">
@@ -76,14 +76,33 @@
 
                     <div id="cont-info-graficas">
 
-                        <div class="titulo-porcentaje">
-                            <p class="h4 pb-2 mb-4 text-primary-emphasis border-bottom border-primary">Resumen</p>
+                        <div id="cont-progresoCircula-avance">
+                            <div class="titulo-porcentaje">
+                                <p class="h4 pb-2 mb-4 text-primary-emphasis border-bottom border-primary">Porcentaje de avance actual</p>
+                            </div>
+                            <div class="skill mt-0" style="margin-left: 35px;">
+                                <div class="outer">
+                                    <div class="inner">
+                                        <div id="number-avance">
+                                            65%
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Porcentaje actual basado en los créditos actuales">
+                                <defs>
+                                   <linearGradient id="GradientColor" x1="100%" y1="30%" x2="60%" y2="100%">
+                                      <stop offset="0%" stop-color="#7DFC7F" />
+                                      <stop offset="60%" stop-color="#F0FC95" />
+                                      <stop offset="100%" stop-color="#e91e63" />
+                                    </linearGradient>
+                                </defs>
+                                <circle id="circulo-avance" cx="80" cy="80" r="70" stroke-linecap="round" />
+                            </svg>
+            
+                            </div>
                         </div>
-
-                        <div id="msj-progreso-creditos" class="border border-2 rounded-end-5 p-3 mb-4 mt-3 text-white text-center">
-                        </div>
-                        <div id="msj-progreso-anio" class="border border-2 rounded-end-5 p-3 mb-3 mt-1 text-white text-center">
-                        </div>
+                        
 
                     </div>
 

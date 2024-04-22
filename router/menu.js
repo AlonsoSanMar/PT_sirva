@@ -251,6 +251,21 @@ router.get('/alumno/recomendacion/ueasSiguientes', async (req, res) => {
 
 });
 
+router.get('/alumno/recomendacionTutor/ueasSiguientes', async (req, res) => {
+    /*const seriacion = req.query.seriacion;
+    const uea = await Uea.find({seriacion: { $in: [seriacion] } });
+    res.json(uea);
+*/
+    if (req.session && req.session.idUsuario) {
+        const matricula = req.query.matricula;
+
+        const usuario = await Usuario.findOne({ matricula: matricula });
+        const ueasNuevas = await Uea.find({ seriacion: { $in: usuario.ueasSeleccionadas } })
+        res.json(ueasNuevas);
+    }
+
+});
+
 router.get('/alumno/recomendacion/ueasCreditos', async (req, res) => {
     if (req.session && req.session.idUsuario) {
         const ueasConCreditos = await Uea.find({ seriacion: { $regex: /Créditos/ } });

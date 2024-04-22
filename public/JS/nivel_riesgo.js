@@ -23,7 +23,7 @@ function trimestresConcluidos(arrExtendido){
 
 
 function checaPorcentaje(){
-    let msjPorcentaje = document.getElementById('msj-progreso-anio');
+    /*let msjPorcentaje = document.getElementById('msj-progreso-anio');
     if(porcentajeConRespectoIngreso > 0 && porcentajeConRespectoIngreso < 20){
         msjPorcentaje.textContent = "Actualmente en los trimestres [1 - 2]";
         msjPorcentaje.classList.add('bg-warning');
@@ -46,7 +46,7 @@ function checaPorcentaje(){
         msjPorcentaje.classList.add('bg-success');
         msjPorcentaje.classList.add('border-success');
         porcentajeConRespectoIngreso = 100;
-    }
+    }*/
     //console.log(parseInt(porcentajeConRespectoIngreso))
     
     let number = document.getElementById('number');
@@ -57,6 +57,18 @@ function checaPorcentaje(){
         }else{
             counter += 1;
             number.innerHTML = counter + "%";
+        }
+    }, 30)
+
+
+    let numberAvance = document.getElementById('number-avance');
+    let counterAvance = 0;
+    setInterval(() => {
+        if(counterAvance == parseInt(avancePor)){
+            clearInterval();
+        }else{
+            counterAvance += 1;
+            numberAvance.innerHTML = counterAvance + "%";
         }
     }, 30)
 }
@@ -139,7 +151,7 @@ if(periodo == 'Primavera'){
 
 checaPorcentaje();
 
-// Obtén una referencia al círculo SVG
+// Para las gráficas circulares 
 const circle = document.getElementById('circulo');
 
 const strokeDashOffset = parseInt(472 - (472 * (parseFloat(porcentajeConRespectoIngreso) / 100)));
@@ -148,7 +160,7 @@ circle.style.setProperty('--stroke-dash-offset', `${strokeDashOffset}`);
 // Agrega la animación
 circle.style.animation = "anim 2s linear forwards";
 // Agrega los estilos de animación
-const style = document.createElement('style');
+let style = document.createElement('style');
 style.textContent = `
     @keyframes anim {
         100% {
@@ -159,34 +171,27 @@ style.textContent = `
 document.head.appendChild(style);
 
 
+// Obtén una referencia al círculo SVG
+const circleAvance = document.getElementById('circulo-avance');
+
+const strokeAvance = parseInt(472 - (472 * (parseFloat(avancePor) / 100)));
+
+circleAvance.style.setProperty('--stroke-dash-offset', `${strokeAvance}`);
+// Agrega la animación
+circleAvance.style.animation = "anim 2s linear forwards";
+// Agrega los estilos de animación
+style = document.createElement('style');
+style.textContent = `
+    @keyframes anim {
+        100% {
+            stroke-dashoffset: var(--stroke-dash-offset, 0);
+        }
+    }
+`;
+document.head.appendChild(style);
 
 
 //---------------------------------------------
-
-// Para el mensaje correspondiente al nivel de creditos
-let contMsjCreditos = document.getElementById('msj-progreso-creditos');
-function mostrarMsjCreditos(){
-    //let msj = document.createElement('p');
-    // Aquí es checar el porcentaje y modificar el mensaje para que sea de acuerdo a su avance con algunas recomendaciones
-    
-    if(avancePor > 80){
-        contMsjCreditos.classList.add('border-success');
-        contMsjCreditos.classList.add('bg-success');
-    }else if(avancePor > 35 && avancePor < 80){
-        contMsjCreditos.classList.add('border-warning');
-        contMsjCreditos.classList.add('bg-warning');
-    }else if(avancePor > 0 && avancePor < 35){
-        contMsjCreditos.classList.add('border-danger');
-        contMsjCreditos.classList.add('bg-danger');
-    }
-
-    contMsjCreditos.textContent = "Porcentaje de créditos actual: " + avancePor + "%";
-
-    //contMsjCreditos.appendChild(msj);
-}
-
-mostrarMsjCreditos();
-
 
 // Para el tooltip
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

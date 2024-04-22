@@ -475,7 +475,7 @@ document.getElementById('btn-generar').addEventListener('click', () => {
     }
 })
 
-// Para crear el pdf con las recomendaciones
+/* Para crear el pdf con las recomendaciones
 document.getElementById('boton-generar-pdf').addEventListener('click', () => {
     let element = document.getElementById('cont-principal');
     let opt = {
@@ -513,7 +513,7 @@ document.getElementById('boton-generar-pdf').addEventListener('click', () => {
         pdf.save(opt.filename);
     });
 });
-
+*/
 
 
 

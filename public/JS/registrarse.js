@@ -229,8 +229,20 @@ function agregaUea(uea) {
             ueas = ueas.filter(u => !u.nombre.toLowerCase().includes(uea.nombre.toLowerCase()))
             //eliminaUeaDeSeleccion(uea);
             actualizarFormulario();
-
             comparaCreditosMinimos();
+
+            if (uea.coregistro.length > 0) {
+                //console.log("Ueas con coregistro eliminadas..");
+                uea.coregistro.forEach(coregistro => {
+                    fetch(`/registro/buscaUea?clave=${coregistro}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (ueas.find(u => u.clave === data[0].clave)) { 
+                                eliminaUeaDeSeleccion(data[0])
+                            }
+                        })
+                });
+            }
         });
 
         elementoHijo.appendChild(nombre);
@@ -493,7 +505,7 @@ function registroUsuario(nombre, apellidos, matricula, anio_ingreso, periodo, cr
                             console.log(error);
                         });
                     }
-                }else {
+                } else {
                     alert("Tienes exceso de creditos... :( . Realiza una selección correcta");
                 }
             }
